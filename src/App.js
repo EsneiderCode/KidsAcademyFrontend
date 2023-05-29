@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import SignUp from "../src/Pages/SignUp";
+import SignIn from "../src/Pages/SignIn";
+import Home from "../src/Pages/Home";
+import EmailConfirmation from "../src/Pages/EmailConfirmation";
+import FirstModule from "../src/Modules/FirstModule";
+import PageNotFound from "../src/Pages/PageNotFound"
+import StudentScorePage from "./Pages/StudentScorePage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className="App">
+            <Routes>
+                <Route path='/' exact element={<SignIn/>}  />
+                <Route path='/sign-up' element={<SignUp/>} />
+                <Route path='/home' element={<Home/>} />
+                <Route path='/email-confirmation' element={<EmailConfirmation/>} />
+                <Route path='/module-1' element={<FirstModule/>} />
+                <Route path="/studentscore" element={<StudentScorePage/>} />
+                <Route element={<PageNotFound/>} />      
+            </Routes>
+        </div>
+    );
+};
 
 export default App;
