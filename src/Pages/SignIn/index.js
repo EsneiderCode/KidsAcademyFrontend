@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
-import './signin.css';
+import styles from './SignIn.module.css'; // Corregir la importación del archivo CSS
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -38,10 +38,10 @@ function SignIn() {
   };
 
   return (
-    <div className="SignIn">
+    <div className={styles.SignIn}> 
       <h1>Вход</h1>
-      <form className="login__form" onSubmit={handleSubmit}>
-        <div className="separator-label-input__vertical">
+      <form className={styles.login__form} onSubmit={handleSubmit}> 
+        <div className={styles["separator-label-input__vertical"]}> 
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -51,7 +51,7 @@ function SignIn() {
               required
             />
         </div>
-        <div className="separator-label-input__vertical">
+        <div className={styles["separator-label-input__vertical"]}> 
         <label htmlFor="password">Пароль:</label>
             <input
               type="password"
@@ -61,8 +61,8 @@ function SignIn() {
               required
             />
         </div>
-        <button type="submit" className="btn-primary">Войти</button>
-        <Link to='/sign-up'className="btn-secundary">Зарегистрироваться</Link>
+        <button type="submit" className={styles["btn-primary"]}>Войти</button> 
+        <Link to='/sign-up' className={styles["btn-secundary"]}>Зарегистрироваться</Link> 
       </form>
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
     </div>

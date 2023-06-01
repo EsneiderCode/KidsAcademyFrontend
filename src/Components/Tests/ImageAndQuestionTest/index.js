@@ -1,5 +1,5 @@
 import React from 'react';
-import './imageandquestiontest.css';
+import styles from './ImageAndQuestion.module.css';
 
 const ImageAndQuestionTest = ({
   questions,
@@ -23,34 +23,32 @@ const ImageAndQuestionTest = ({
   if (currentQuestion >= questions.length) setChangeTest(true);
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       {currentQuestion < questions.length ? (
-        <div className="screen">
+        <div className={styles.screen}>
           <h2>{questions[currentQuestion].question}</h2>
           <img
             src={questions[currentQuestion].picture}
             alt="Изображение"
-            className="picture"
+            className={styles.picture}
           />
-          <div className="options">
+          <div className={styles.options}>
             {questions[currentQuestion].options.map((option, index) => (
               <div
                 key={index}
-                className="option"
+                className={styles.option}
                 onClick={() => handleAnswer(option)}
               >
                 {option}
               </div>
             ))}
           </div>
-          <button className="next-btn" onClick={handleNextQuestion}>
+          <button className={styles.nextBtn} onClick={handleNextQuestion}>
             Далее
           </button>
         </div>
       ) : (
-
-
-        <div className="result">
+        <div className={styles.result}>
           Идет загрузка теста
         </div>
       )}

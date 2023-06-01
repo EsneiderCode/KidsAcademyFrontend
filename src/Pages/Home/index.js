@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './home.css';
+import styles from './Home.module.css';
 import getUserInfo from '../../Functions/User';
 
 const Home = () => {
@@ -36,10 +36,10 @@ const Home = () => {
   };
 
   return (
-    <div className="homepage">
+    <div className={styles.homepage}>
       <h1>Добро пожаловать на домашнюю страницу</h1>
       {user ? (
-        <div className="user-info">
+        <div className={styles["user-info"]}>
           <img src={user.avatar} alt="Avatar" />
           <h2>ФИО: {user.username}</h2>
           <h2>Общая оценка: {user.rating}</h2>
@@ -49,7 +49,7 @@ const Home = () => {
       ) : (
         <div>Загрузка информации о пользователе...</div>
       )}
-      <div className="buttons">
+      <div className={styles.buttons}>
         <button onClick={handleStartModule}>Начать модуль</button>
         <button onClick={handleSignOut}>Выйти</button>
         <button onClick={handleEditInformation}>Редактировать информацию</button>

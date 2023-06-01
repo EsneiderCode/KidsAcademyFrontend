@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate, Link } from 'react-router-dom';
-import './signup.css';
+import styles from './SignUp.module.css';
 
 const avatar1 = require("./avatars/avatar-1.webp");
 const avatar2 = require("./avatars/avatar-2.webp");
@@ -64,7 +64,7 @@ const SignUp = () => {
     }
 
     axios
-      .post("  http://localhost:1337/api/auth/local/register", {
+      .post("http://localhost:1337/api/auth/local/register", {
           username: name,
           email: email,
           password: password,
@@ -83,14 +83,14 @@ const SignUp = () => {
   };
 
   return (
-    <div className="container-signup">
+    <div className={styles["container-signup"]}>
       <h2>Форма регистрации</h2>
       <form onSubmit={handleSubmit}>
-          <div className="avatar-preview">
-            {avatar && <img src={avatar} alt="Аватар" />}
-          </div>
-          
-        <div className="separator-label-input">
+        <div className={styles["avatar-preview"]}>
+          {avatar && <img src={avatar} alt="Аватар" />}
+        </div>
+        
+        <div className={styles["separator-label-input"]}>
           <label>Выберите аватар:</label>
           <select value={avatar} onChange={handleAvatarChange}>
             <option value="" disabled hidden>Выберите аватар</option>
@@ -100,32 +100,32 @@ const SignUp = () => {
             <option value={avatar4}>Кролик</option>
           </select>
         </div>
-        <div className="separator-label-input">
+        <div className={styles["separator-label-input"]}>
           <label>Имя:</label>
           <input type="text" value={name} onChange={handleNameChange} />
         </div>
-        <div className="separator-label-input">
+        <div className={styles["separator-label-input"]}>
           <label>Электронная почта:</label>
           <input type="email" value={email} onChange={handleEmailChange} />
         </div>
-        <div className="separator-label-input">
+        <div className={styles["separator-label-input"]}>
           <label>Пароль:</label>
           <input type="password" value={password} onChange={handlePasswordChange} />
         </div>
-        <div className="separator-label-input">
+        <div className={styles["separator-label-input"]}>
           <label>Подтверждение пароля:</label>
           <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
         </div>
-        <div className="separator-label-input">
+        <div className={styles["separator-label-input"]}>
           <label>Дата рождения:</label>
           <input type="date" value={birthdate} onChange={handleBirthdateChange} />
         </div>
-        <div className="separator-label-input">
+        <div className={styles["separator-label-input"]}>
           <label>Учебное заведение:</label>
           <input type="text" value={institution} onChange={handleInstitutionChange} />
         </div>
-        <button type="submit" className="btn-primary">Зарегистрироваться</button>
-        <Link to='/'className="btn-secundary">Уже есть аккаунт?</Link>
+        <button type="submit" className={styles["btn-primary"]}>Зарегистрироваться</button>
+        <Link to='/' className={styles["btn-secundary"]}>Уже есть аккаунт?</Link>
       </form>
     </div>
   );

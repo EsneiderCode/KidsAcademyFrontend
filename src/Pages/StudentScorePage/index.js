@@ -1,19 +1,21 @@
-import React, {useEffect} from 'react';
-import styles from './puntuation.module.css';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import styles from './StudentScorePage.module.css';
 import getUserInfo from '../../Functions/User';
 
 const StudentScorePage = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
+  
   useEffect(() => {
     const token = localStorage.getItem('token');
     const id = localStorage.getItem('id');
-    getUserInfo(id, setUser);
-    if (!token || !id || !user) {
+
+    if (!token || !id) {
       navigate('/');
-    } 
+    } else {
+      getUserInfo(id, setUser);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -26,19 +28,23 @@ const StudentScorePage = () => {
   return (
     <div className={styles.container}>
       {user ? (
-      <><header>
-          <h1>Баллы Студента</h1>
-          <button onClick={handleSignOut}>Выйти</button>
-        </header><main>
+        <>
+          <header>
+            <h1>Баллы Студента</h1>
+            <button onClick={handleSignOut}>Выйти</button>
+          </header>
+          <main>
             <div className={styles.score}>
               <h2>Общий балл:</h2>
-              <p>{user.rating}</p> {/* Здесь вы бы отобразили реальный общий балл студента */}
+              <p>{user.rating}</p> 
             </div>
-            {/* Другие разделы или компоненты, связанные с баллами студента */}
-          </main><footer>
-            <Link to='/home' className="btn-secundary">Перейти на главную</Link>
-          </footer></> ) :(
-          <div>Загрузка информации о пользователе...</div>
+          </main>
+          <footer>
+            <Link to='/home' className={styles["btn-secundary"]}>Перейти на главную</Link>
+          </footer>
+        </>
+      ) : (
+        <div>Загрузка информации о пользователе...</div>
       )}
     </div>
   );
