@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import ImageAndQuestionTest from "../../Components/Tests/ImageAndQuestionTest";
 import QuestionsImageAndQuestionTest from './questions';
 import ImageClickTest from "../../Components/Tests/ImageClickTest";
-import DragAndDropGame from "../../Components/Tests/DragAndDropGame";
+import DragAndDropGame from "../../Components/Tests/DragAndDropTest";
+import FillingGapsTest from '../../Components/Tests/FillingGapsTest';
 import axios from 'axios';
 import Loading from '../../Components/Loading';
 
@@ -37,6 +38,15 @@ const FirstModule = () => {
   Даже завитком рога. Как его зовут? ______  .
   На овчарку он похож, Что ни зуб - то острый нож!
   Он бежит, оскалив пасть, На овцу готов напасть. Его зовут ______  `;
+
+  // Props for filling gaps test
+  const fillingGapsTitle = "Guess the Words!";
+  const fillingGapsPicture = require('./images/lake-don.webp');
+  const fillingGapsWords = ['boat', 'houses'];
+  const [correctGuesses, setCorrectGuesses] = useState([]);
+  const [fillingGapsScore, setFillingGapsScore] = useState(Array(fillingGapsWords.length).fill(''));
+  const fillingGapsSentence = 
+  `There is a __ over the river, and a __ in on the street.`;
 
 
   useEffect(() => {
@@ -83,12 +93,27 @@ const FirstModule = () => {
     setChangeTest,
   }
 
+  const propsFillingGapsTest = {
+    setChangeTest,
+    fillingGapsTitle,
+    fillingGapsSentence,
+    fillingGapsWords,
+    fillingGapsPicture,
+    correctGuesses,
+    setCorrectGuesses,
+    fillingGapsScore,
+    setFillingGapsScore
+  }
+
   function calculateStudentRating() {
     const totalQuestions = QuestionsImageAndQuestionTest.length;
     const totalCorrectClicks = correctClicks.length;
-    const totalWordsCorrects = correctWordsDragAndDrop.length;
-    const total = (imageAndQuestionTestScore + imageClickTestScore + dragAndDropScore) /
-      (totalQuestions + totalCorrectClicks + totalWordsCorrects);
+    const totalWordsCorrectsDragAndDrop = correctWordsDragAndDrop.length;
+    const totalFillingTheGapsWordsCorrect = fillingGapsWords.length;
+    const fillingGapsFinalScore = correctGuesses.length;
+
+    const total = (imageAndQuestionTestScore + imageClickTestScore + dragAndDropScore + fillingGapsFinalScore) /
+      (totalQuestions + totalCorrectClicks + totalWordsCorrectsDragAndDrop + totalFillingTheGapsWordsCorrect);
 
     const rating = total * 100;
     return rating;
@@ -104,8 +129,8 @@ const FirstModule = () => {
         'Authorization': `Bearer ${token}`
       };
 
-      const response = await axios.put(`http://localhost:1337/api/users/${user.id}`, data, { headers });
-      console.log(response.data);
+      await axios.put(`http://localhost:1337/api/users/${user.id}`, data, { headers });
+
     } catch (error) {
       console.error(error);
     }
@@ -123,6 +148,8 @@ const FirstModule = () => {
     case 3:
       return <DragAndDropGame {...propsDragAndDropTest} />;
     case 4:
+      return <FillingGapsTest {...propsFillingGapsTest} />;
+    case 5:
       updateUserInfo();
       setTimeout(() => {
         navigate('/studentscore');
