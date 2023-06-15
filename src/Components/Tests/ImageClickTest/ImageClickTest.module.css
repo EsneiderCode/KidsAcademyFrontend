@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+.description{
+  font-size:20px;
+  font-weight: 500;
+  color:rgb(0, 102, 255);
+}
+
 .imageContainer {
   position: relative;
   display: inline-block;
@@ -21,7 +27,8 @@
   display: block;
   width:800px;
   height:500px;
-  height: auto;
+  object-fit: cover;
+  object-position: 50% 0;
   margin: 0 auto;
   cursor: pointer;
 }

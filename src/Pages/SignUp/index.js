@@ -85,7 +85,7 @@ const SignUp = () => {
   return (
     <div className={styles["container-signup"]}>
       <h2>Форма регистрации</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.formSignUp}>
         <div className={styles["avatar-preview"]}>
           {avatar && <img src={avatar} alt="Аватар" />}
         </div>
@@ -125,7 +125,7 @@ const SignUp = () => {
           <input type="text" value={institution} onChange={handleInstitutionChange} />
         </div>
         <button type="submit" className={styles.btnPrimary}>Зарегистрироваться</button>
-        <Link to='/' className={styles["btnSecundary"]}>Уже есть аккаунт?</Link>
+        <Link to='/' className={styles.btnSecundary}>Уже есть аккаунт?</Link>
       </form>
     </div>
   );

@@ -8,6 +8,7 @@ import FillingGapsTest from '../../Components/Tests/FillingGapsTest';
 import CardsDragAndDropTest from '../../Components/Tests/CardsDragAndDropTest';
 import axios from 'axios';
 import Loading from '../../Components/Loading';
+import ChoosingCorrectPicture from '../../Components/Tests/ChoosingCorrectPicture';
 
 const FirstModule = () => {
   const [user, setUser] = useState([]);
@@ -15,13 +16,14 @@ const FirstModule = () => {
   const navigate = useNavigate();
 
   // Props for ImageAndQuestionTest
-  const [testEnable, setTestEnable] = useState(1);
+  const [testEnable, setTestEnable] = useState(7);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [imageAndQuestionTestScore, setImageAndQuestionTestScore] = useState(0);
   const [changeTest, setChangeTest] = useState(false);
 
   // Props for ImageClickTest
   const testTitle = 'Поиск нескольких точек на картинке';
+  const imageClickTestDescription = "Нажмите на глаза лисы";
   const imageClickTestUrl = require('./images/greatwolf.webp');
   const [imageClickTestScore, setImageClickTestScore] = useState(0);
   const correctClicks = [
@@ -64,6 +66,15 @@ const FirstModule = () => {
     }
   ]
 
+  //Props for imageClickTestOneClick
+  const baranUrl = require('./images/baran.webp');
+  const testTitleOneClick = 'Поиск одной точки на картинке';
+  const imageClickTestOneClickDescription = "Нажмите на пасть барана";
+  const [imageClickTestOneClickScore, setImageClickTestOneClickScore] = useState(0);
+  const correctClicksOneClick = [
+    { x: 408, y: 384 },
+  ];
+
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -92,6 +103,7 @@ const FirstModule = () => {
 
   const propsImageClickTest = {
     title: testTitle,
+    imageClickTestDescription,
     imageClickTestUrl,
     correctClicks,
     setChangeTest,
@@ -128,6 +140,16 @@ const FirstModule = () => {
     setCardsDragAndDropScore
   }
 
+  const propsImageClickTestOneClick = {
+  imageClickTestUrl: baranUrl,
+  title: testTitleOneClick,
+  imageClickTestDescription: imageClickTestOneClickDescription,
+  imageClickTestScore: imageClickTestOneClickScore,
+  setImageClickTestScore: setImageClickTestOneClickScore,
+  correctClicks: correctClicksOneClick,
+  setChangeTest
+  }
+
   function calculateStudentRating() {
     const totalQuestions = QuestionsImageAndQuestionTest.length;
     const totalCorrectClicks = correctClicks.length;
@@ -135,9 +157,10 @@ const FirstModule = () => {
     const totalFillingTheGapsWordsCorrect = fillingGapsWords.length;
     const fillingGapsFinalScore = correctGuesses.length;
     const totalCardsDragAndDrop = animalsCardsDAD.length;
+    const totalCorrectClicksOneClick = correctClicksOneClick.length;
 
-    const total = (imageAndQuestionTestScore + imageClickTestScore + dragAndDropScore + fillingGapsFinalScore + CardsDragAndDropScore) /
-      (totalQuestions + totalCorrectClicks + totalWordsCorrectsDragAndDrop + totalFillingTheGapsWordsCorrect + totalCardsDragAndDrop);
+    const total = (imageAndQuestionTestScore + imageClickTestScore + dragAndDropScore + fillingGapsFinalScore + CardsDragAndDropScore + imageClickTestOneClickScore) /
+      (totalQuestions + totalCorrectClicks + totalWordsCorrectsDragAndDrop + totalFillingTheGapsWordsCorrect + totalCardsDragAndDrop + totalCorrectClicksOneClick);
 
     const rating = total * 100;
     return rating;
@@ -175,7 +198,11 @@ const FirstModule = () => {
       return <FillingGapsTest {...propsFillingGapsTest} />;
     case 5: 
       return <CardsDragAndDropTest {...propsCardsDragAndDropTest} />;
-    case 6:
+    case 6: 
+      return <ImageClickTest {...propsImageClickTestOneClick} />;
+    case 7: 
+      return <ChoosingCorrectPicture  />;
+    case 8:
       updateUserInfo();
       setTimeout(() => {
         navigate('/studentscore');

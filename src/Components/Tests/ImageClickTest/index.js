@@ -5,6 +5,7 @@ import styles from './ImageClickTest.module.css';
 const ImageClickTest = ({ 
   title, 
   imageClickTestUrl, 
+  imageClickTestDescription,
   correctClicks, 
   setChangeTest,
   setImageClickTestScore,
@@ -16,6 +17,8 @@ const ImageClickTest = ({
   const handleImageClick = (e) => {
     const offsetX = e.nativeEvent.offsetX;
     const offsetY = e.nativeEvent.offsetY;
+
+    console.log(offsetX, offsetY)
 
     const marginOfError = 10;
 
@@ -68,6 +71,7 @@ const ImageClickTest = ({
   return (
     <div className={styles.testContainer}>
       <h1>{title}</h1>
+      <p className={styles.description}>{imageClickTestDescription}</p>
       <div className={styles.imageContainer}>
         <img src={imageClickTestUrl} alt="Test Image" onClick={handleImageClick} />
         {clicks.map((click, index) =>

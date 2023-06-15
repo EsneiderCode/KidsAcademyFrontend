@@ -37,12 +37,16 @@
   
   button[type="submit"],
   .btnPrimary {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
     color: #fff;
+    background-color: #3a944a;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
   }
   
