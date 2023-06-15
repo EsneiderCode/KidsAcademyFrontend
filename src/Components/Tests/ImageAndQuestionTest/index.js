@@ -16,10 +16,6 @@ const ImageAndQuestionTest = ({
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  const handleNextQuestion = () => {
-    setCurrentQuestion(currentQuestion + 1);
-  };
-
   if (currentQuestion >= questions.length) setChangeTest(true);
 
   return (
@@ -43,9 +39,6 @@ const ImageAndQuestionTest = ({
               </div>
             ))}
           </div>
-          <button className={styles.nextBtn} onClick={handleNextQuestion}>
-            Далее
-          </button>
         </div>
       ) : (
         <div className={styles.result}>

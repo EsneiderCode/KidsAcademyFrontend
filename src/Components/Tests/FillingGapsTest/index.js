@@ -61,7 +61,7 @@ const FillingGapsTest = ({
       <h1 className={styles.title}>{fillingGapsTitle}</h1>
       <img className={styles.picture} src={fillingGapsPicture} alt="filling-gaps-picture"/>
       <p className={styles.sentence}>{renderSentence()}</p>
-      <button className={styles.nxtButton} onClick={handleNext}>Next</button>
+      <button className={styles.btnPrimary} onClick={handleNext}>Next</button>
     </div>
   );
 };

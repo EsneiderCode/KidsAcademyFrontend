@@ -124,8 +124,8 @@ const SignUp = () => {
           <label>Учебное заведение:</label>
           <input type="text" value={institution} onChange={handleInstitutionChange} />
         </div>
-        <button type="submit" className={styles["btn-primary"]}>Зарегистрироваться</button>
-        <Link to='/' className={styles["btn-secundary"]}>Уже есть аккаунт?</Link>
+        <button type="submit" className={styles.btnPrimary}>Зарегистрироваться</button>
+        <Link to='/' className={styles["btnSecundary"]}>Уже есть аккаунт?</Link>
       </form>
     </div>
   );

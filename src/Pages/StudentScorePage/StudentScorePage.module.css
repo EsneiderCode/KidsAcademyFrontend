@@ -16,15 +16,6 @@
     color: #333;
   }
   
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
   main {
     margin-bottom: 40px;
   }
@@ -52,5 +43,38 @@
   a {
     color: #007bff;
     text-decoration: none;
+  }
+  
+  .btnPrimary {
+    padding: 10px 20px;
+    font-size: 16px;
+    min-height: 50px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #3a944a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btnPrimary:hover {
+    background-color: #2c7039;
+  }
+  
+  .btnSecundary {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #84878a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btnSecundary:hover {
+    background-color: #414244;
   }
   

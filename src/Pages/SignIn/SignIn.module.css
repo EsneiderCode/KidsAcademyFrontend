@@ -36,7 +36,7 @@
   }
   
   button[type="submit"],
-  .btn-primary {
+  .btnPrimary {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: #007bff;
@@ -46,7 +46,7 @@
     cursor: pointer;
   }
   
-  .btn-secundary {
+  .btnSecundary {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: #ccc;

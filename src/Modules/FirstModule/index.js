@@ -5,6 +5,7 @@ import QuestionsImageAndQuestionTest from './questions';
 import ImageClickTest from "../../Components/Tests/ImageClickTest";
 import DragAndDropGame from "../../Components/Tests/DragAndDropTest";
 import FillingGapsTest from '../../Components/Tests/FillingGapsTest';
+import CardsDragAndDropTest from '../../Components/Tests/CardsDragAndDropTest';
 import axios from 'axios';
 import Loading from '../../Components/Loading';
 
@@ -47,6 +48,21 @@ const FirstModule = () => {
   const [fillingGapsScore, setFillingGapsScore] = useState(Array(fillingGapsWords.length).fill(''));
   const fillingGapsSentence = 
   `There is a __ over the river, and a __ in on the street.`;
+
+  //Props for CardsDragAndDropTest
+  const [CardsDragAndDropScore, setCardsDragAndDropScore] = useState(0);
+  const foxUrl = require('./images/fox.webp');
+  const wolfUrl = require('./images/wolf.webp');
+  const animalsCardsDAD = [
+    {
+      name: "Волк",
+      url: wolfUrl
+    },
+    {
+      name: "Лиса",
+      url: foxUrl
+    }
+  ]
 
 
   useEffect(() => {
@@ -105,15 +121,23 @@ const FirstModule = () => {
     setFillingGapsScore
   }
 
+  const propsCardsDragAndDropTest = {
+    setChangeTest,
+    animalsCardsDAD,
+    CardsDragAndDropScore,
+    setCardsDragAndDropScore
+  }
+
   function calculateStudentRating() {
     const totalQuestions = QuestionsImageAndQuestionTest.length;
     const totalCorrectClicks = correctClicks.length;
     const totalWordsCorrectsDragAndDrop = correctWordsDragAndDrop.length;
     const totalFillingTheGapsWordsCorrect = fillingGapsWords.length;
     const fillingGapsFinalScore = correctGuesses.length;
+    const totalCardsDragAndDrop = animalsCardsDAD.length;
 
-    const total = (imageAndQuestionTestScore + imageClickTestScore + dragAndDropScore + fillingGapsFinalScore) /
-      (totalQuestions + totalCorrectClicks + totalWordsCorrectsDragAndDrop + totalFillingTheGapsWordsCorrect);
+    const total = (imageAndQuestionTestScore + imageClickTestScore + dragAndDropScore + fillingGapsFinalScore + CardsDragAndDropScore) /
+      (totalQuestions + totalCorrectClicks + totalWordsCorrectsDragAndDrop + totalFillingTheGapsWordsCorrect + totalCardsDragAndDrop);
 
     const rating = total * 100;
     return rating;
@@ -149,7 +173,9 @@ const FirstModule = () => {
       return <DragAndDropGame {...propsDragAndDropTest} />;
     case 4:
       return <FillingGapsTest {...propsFillingGapsTest} />;
-    case 5:
+    case 5: 
+      return <CardsDragAndDropTest {...propsCardsDragAndDropTest} />;
+    case 6:
       updateUserInfo();
       setTimeout(() => {
         navigate('/studentscore');

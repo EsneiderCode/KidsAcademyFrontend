@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import getUserInfo from '../../Functions/User';
 
@@ -49,10 +49,10 @@ const Home = () => {
       ) : (
         <div>Загрузка информации о пользователе...</div>
       )}
-      <div className={styles.buttons}>
-        <button onClick={handleStartModule}>Начать модуль</button>
-        <button onClick={handleSignOut}>Выйти</button>
-        <button onClick={handleEditInformation}>Редактировать информацию</button>
+      <div className={styles.buttonsContainer}>
+        <Link to='/module-1' onClick={handleStartModule} className={styles.btnPrimary}>Начать модуль 1</Link>
+        <button onClick={handleEditInformation} className={styles.btnPrimary}>Редактировать информацию</button>
+        <button onClick={handleSignOut} className={styles.btnSecundary}>Выйти</button>
       </div>
     </div>
   );

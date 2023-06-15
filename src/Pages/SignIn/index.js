@@ -61,8 +61,8 @@ function SignIn() {
               required
             />
         </div>
-        <button type="submit" className={styles["btn-primary"]}>Войти</button> 
-        <Link to='/sign-up' className={styles["btn-secundary"]}>Зарегистрироваться</Link> 
+        <button type="submit" className={styles.btnPrimary}>Войти</button> 
+        <Link to='/sign-up' className={styles.btnSecundary}>Зарегистрироваться</Link> 
       </form>
       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
     </div>

@@ -31,7 +31,7 @@ const StudentScorePage = () => {
         <>
           <header>
             <h1>Баллы Студента</h1>
-            <button onClick={handleSignOut}>Выйти</button>
+            <button className={styles.btnPrimary} onClick={handleSignOut}>Выйти</button>
           </header>
           <main>
             <div className={styles.score}>
@@ -40,7 +40,7 @@ const StudentScorePage = () => {
             </div>
           </main>
           <footer>
-            <Link to='/home' className={styles["btn-secundary"]}>Перейти на главную</Link>
+            <Link to='/home' className={styles["btnSecundary"]}>Перейти на главную</Link>
           </footer>
         </>
       ) : (
