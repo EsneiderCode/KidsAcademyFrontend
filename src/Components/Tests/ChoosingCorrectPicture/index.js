@@ -1,38 +1,47 @@
+import React, { useState } from 'react';
+import styles from './ChoosingCorrectPicture.module.css';
 
-import React, {useState} from "react";
-import styles from "./ChoosingCorrectPicture.module.css";
-const picturesArray = [
-    {
-        url: "url1",
-        correct: true
-    },
-    {
-        url: "url2",
-        correct: false
-    },
-    {
-        url: "url3",
-        correct: false
-    }
-]
 
-const ChoosingCorrectPicture = () =>{
-const [choosenPicture, setChoosenPicture] = useState(null);
-    return (<>
-        <div className={styles.picturesContainer}>
-            {
-                picturesArray.map((picture, index)=>{
-                    return(
-                            <div className={styles.pictureContainer}>
-                                <img src={picture.url} alt={picture.name}/>
-                            </div>
-                    )
-                })
-                
-            }
-        </div>
-    </>);
+const Card = ({ card, isActive, onClick }) => {
+  const cardClassName = isActive ? `${styles.card} ${styles.active}` : styles.card;
 
-}
+  return (
+    <div className={cardClassName} onClick={onClick}>
+      <img src={card.url} alt={card.name} />
+    </div>
+  );
+};
+
+const ChoosingCorrectPicture = ({cardsData, setChangeTest, setChoosedCorrectCard}) => {
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardClick = (card) => {
+    setSelectedCard(card);
+  };
+
+  const handleNextButtonClick = () => {
+    if (selectedCard !== null && selectedCard.correct) {
+      setChoosedCorrectCard(true);
+    } 
+    setChangeTest(true);
+  };
+
+  return (
+    <div className={styles.app}>
+        <h2>Укажите на какой из картинок изображена лисица</h2>
+      <div className={styles.cardContainer}>
+        {cardsData.map((card, index) => (
+          <Card
+            key={index}
+            card={card}
+            isActive={selectedCard === card}
+            onClick={() => handleCardClick(card)}
+          />
+        ))}
+      </div>
+      <button className={styles.nxtButton} onClick={handleNextButtonClick}>Next</button>
+    </div>
+  );
+};
 
 export default ChoosingCorrectPicture;
