@@ -39,7 +39,7 @@ const ChoosingCorrectPicture = ({cardsData, setChangeTest, setChoosedCorrectCard
           />
         ))}
       </div>
-      <button className={styles.nxtButton} onClick={handleNextButtonClick}>Next</button>
+      <button className={styles.nxtButton} onClick={handleNextButtonClick}>Дальше</button>
     </div>
   );
 };

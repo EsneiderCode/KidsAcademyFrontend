@@ -29,18 +29,18 @@ const StudentScorePage = () => {
     <div className={styles.container}>
       {user ? (
         <>
-          <header>
-            <h1>Баллы Студента</h1>
-            <button className={styles.btnPrimary} onClick={handleSignOut}>Выйти</button>
+          <header className={styles.header}>
+            <h1 className={styles.title}>Баллы Студента</h1>
+            <button className={styles.signOutBtn} onClick={handleSignOut}>Выйти</button>
           </header>
-          <main>
+          <main className={styles.main}>
             <div className={styles.score}>
-              <h2>Общий балл:</h2>
-              <p>{user.rating}</p> 
+              <h2 className={styles.scoreTitle}>Общий балл:</h2>
+              <p className={styles.scoreValue}>{user.rating}</p> 
             </div>
           </main>
-          <footer>
-            <Link to='/home' className={styles["btnSecundary"]}>Перейти на главную</Link>
+          <footer className={styles.footer}>
+            <Link to='/home' className={styles.homeLink}>Перейти на главную</Link>
           </footer>
         </>
       ) : (

@@ -125,7 +125,7 @@ const SignUp = () => {
           <input type="text" value={institution} onChange={handleInstitutionChange} />
         </div>
         <button type="submit" className={styles.btnPrimary}>Зарегистрироваться</button>
-        <Link to='/' className={styles.btnSecundary}>Уже есть аккаунт?</Link>
+        <Link to='/sign-in' className={styles.btnSecundary}>Уже есть аккаунт?</Link>
       </form>
     </div>
   );

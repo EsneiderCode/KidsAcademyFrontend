@@ -7,12 +7,16 @@ import EmailConfirmation from "../src/Pages/EmailConfirmation";
 import FirstModule from "../src/Modules/FirstModule";
 import PageNotFound from "../src/Pages/PageNotFound"
 import StudentScorePage from "./Pages/StudentScorePage";
+import IndexPage from "./Pages/IndexPage";
+import IntroductoryComic from "./Comics/IntroductoryComic";
 
 const App = () => {
     return (
         <div className="App">
             <Routes>
-                <Route path='/' exact element={<SignIn/>}  />
+                <Route path='/introductorycomic' exact element={<IntroductoryComic/>}  />
+                <Route path='/sign-in' exact element={<SignIn/>}  />
+                <Route path='/' exact element={<IndexPage/>}  />
                 <Route path='/sign-up' element={<SignUp/>} />
                 <Route path='/home' element={<Home/>} />
                 <Route path='/email-confirmation' element={<EmailConfirmation/>} />

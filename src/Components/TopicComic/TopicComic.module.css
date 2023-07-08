@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: grey;
+}
+
+.comic {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1366px;
+  height: 768px;
+  z-index: 10;
+}
+
+.backgroundPicture {
+  position: absolute;
+  z-index: -1;
+}
+
+.rightButton {
+  position: absolute;
+  bottom: 30px;
+  right: 80px;
+  cursor: pointer;
+}
+
+.leftButton {
+  position: absolute;
+  bottom: 30px;
+  left: 80px;
+  cursor: pointer;
+}
+
+.boardPicture {
+  z-index: 5;
+}
+
+.boardDescription {
+  z-index: 10;
+  line-height: 23.52px;
+}
+
+.boardDescription b {
+  font-family: inherit;
+}
+
+.points {
+  font-size: 60px;
+}

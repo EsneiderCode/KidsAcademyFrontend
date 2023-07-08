@@ -1,80 +1,84 @@
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    color: #333;
-  }
-  
-  main {
-    margin-bottom: 40px;
-  }
-  
-  .score {
-    background-color: #f8f8f8;
-    border-radius: 4px;
-    padding: 20px;
-  }
-  
-  h2 {
-    font-size: 20px;
-    color: #333;
-  }
-  
-  p {
-    font-size: 16px;
-    color: #777;
-  }
-  
-  footer {
-    text-align: center;
-  }
-  
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .btnPrimary {
-    padding: 10px 20px;
-    font-size: 16px;
-    min-height: 50px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    background-color: #3a944a;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btnPrimary:hover {
-    background-color: #2c7039;
-  }
-  
-  .btnSecundary {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    background-color: #84878a;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btnSecundary:hover {
-    background-color: #414244;
-  }
-  
+  background-color: #f2f2f2;
+  padding: 40px;
+  border-radius: 10px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.signOutBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signOutBtn:hover {
+  background-color: #f44336;
+}
+
+.main {
+  margin-bottom: 40px;
+}
+
+.score {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scoreTitle {
+  font-size: 24px;
+  color: #333;
+}
+
+.scoreValue {
+  font-size: 48px;
+  color: #ff5722;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.homeLink {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.homeLink:hover {
+  background-color: #388e3c;
+}
