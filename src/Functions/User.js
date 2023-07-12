@@ -2,7 +2,7 @@ import axios from "axios";
 
 const getUserInfo = async (id, setUser) => {
     try {
-      const response = await axios.get(`http://localhost:1337/api/users/${id}`);
+      const response = await axios.get(`https://stepi-backend.onrender.com/api/users/${id}`);
       if (response.status === 200) {
         setUser(response.data);
         localStorage.setItem("user", JSON.stringify(response.data));

@@ -26,7 +26,7 @@ function SignIn() {
 
     try {
       const response = await axios.post(
-        "http://localhost:1337/api/auth/local",
+        `https://stepi-backend.onrender.com/api/auth/local`,
         {
           identifier: email,
           password: password,
@@ -57,7 +57,7 @@ function SignIn() {
           />
         </div>
         <div className={styles.separatorLabelInputVertical}>
-          <label htmlFor="password">Пароль:</label>
+          <label onClick={()=>console.log(process.env)} htmlFor="password">Пароль:</label>
           <input
             type="password"
             id="password"

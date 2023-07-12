@@ -64,7 +64,7 @@ const SignUp = () => {
     }
 
     axios
-      .post("http://localhost:1337/api/auth/local/register", {
+      .post(`https://stepi-backend.onrender.com/api/auth/local/register`, {
           username: name,
           email: email,
           password: password,

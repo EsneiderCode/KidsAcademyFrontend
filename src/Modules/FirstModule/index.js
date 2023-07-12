@@ -488,7 +488,7 @@ const FirstModule = () => {
         Authorization: `Bearer ${token}`,
       };
 
-      await axios.put(`http://localhost:1337/api/users/${user.id}`, data, {
+      await axios.put(`https://stepi-backend.onrender.com/api/users/${user.id}`, data, {
         headers,
       });
     } catch (error) {
