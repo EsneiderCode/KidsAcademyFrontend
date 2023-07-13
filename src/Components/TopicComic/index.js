@@ -39,7 +39,7 @@ const TopicComic = ({
   function nextScreenTimer() {
     setTimeout(() => {
       setTestEnable(testEnable + 1);
-    }, 2000);
+    }, 1000);
   }
 
   return (

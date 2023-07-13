@@ -73,6 +73,7 @@ const SignUp = () => {
           institution: institution
       })
       .then((response) => {
+        console.log(response);
         alert("Зарегистрирован!");
         setSuccessRegister(true);
       })
