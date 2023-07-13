@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from 'react';
-import './imageclicktest.css';
+import styles from './ImageClickTest.module.css';
 
 const ImageClickTest = ({ 
   title, 
   imageClickTestUrl, 
+  imageClickTestDescription,
   correctClicks, 
   setChangeTest,
   setImageClickTestScore,
@@ -16,9 +17,16 @@ const ImageClickTest = ({
   const handleImageClick = (e) => {
     const offsetX = e.nativeEvent.offsetX;
     const offsetY = e.nativeEvent.offsetY;
-    const marginOfError = 5;
 
-    if (clicks.length + 1 === correctClicks.length) setChangeTest(true);
+    console.log(offsetX, offsetY)
+
+    const marginOfError = 10;
+
+    if (clicks.length + 1 === correctClicks.length){
+      setTimeout(() => {
+        setChangeTest(true);
+      }, 500);
+    }
 
     const isClickedInArea = clickAreas.some((area) => {
       const { startX, endX, startY, endY } = area;
@@ -49,9 +57,9 @@ const ImageClickTest = ({
         endY: offsetY + marginOfError,
       };
       setClickAreas((prevAreas) => [...prevAreas, newArea]);
-      e.target.classList.add('correct');
+      e.target.classList.add(styles.correct);
     } else {
-      e.target.classList.add('incorrect');
+      e.target.classList.add(styles.incorrect);
     }
 
     setClicks((prevClicks) => [
@@ -61,15 +69,16 @@ const ImageClickTest = ({
   };
 
   return (
-    <div className="test-container">
+    <div className={styles.testContainer}>
       <h1>{title}</h1>
-      <div className="image-container">
+      <p className={styles.description}>{imageClickTestDescription}</p>
+      <div className={styles.imageContainer}>
         <img src={imageClickTestUrl} alt="Test Image" onClick={handleImageClick} />
         {clicks.map((click, index) =>
           click.isCorrect ? (
             <div
               key={index}
-              className={`click-marker correct`}
+              className={`${styles.clickMarker} ${styles.correct}`}
               style={{ left: click.x, top: click.y }}
             >
               &#9989;
@@ -78,7 +87,7 @@ const ImageClickTest = ({
             !click.isCorrect && (
               <div
                 key={index}
-                className={`click-marker incorrect`}
+                className={`${styles.clickMarker} ${styles.incorrect}`}
                 style={{ left: click.x, top: click.y }}
               >
                 &#10060;

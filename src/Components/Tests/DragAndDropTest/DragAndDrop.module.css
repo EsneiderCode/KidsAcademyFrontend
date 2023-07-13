@@ -1,0 +1,91 @@
+.dragAndDrop {
+  text-align: center;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.picture {
+  margin-bottom: 20px;
+}
+
+.picture img {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.sentence {
+  border: 2px dashed #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: left;
+  
+}
+
+.blank {
+  background:#83cfbb;
+  color:white;
+  padding:1px;
+  border-radius: 2px;
+}
+
+.words {
+  background: #adcaad;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  margin: 0 20px;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.word {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  cursor: move;
+  min-width:80px;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.container p {
+  margin-top: 10px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.separatorLabelInputVertical {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.separatorLabelInputVertical input[type="email"],
+.separatorLabelInputVertical input[type="password"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.btnPrimary {
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  background-color: #3a944a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnSecondary {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}

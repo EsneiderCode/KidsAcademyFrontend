@@ -1,0 +1,286 @@
+@import url("../../variables.css");
+* {
+  font-family: var(--primary-font);
+}
+
+.greatContainer {
+  z-index: 5;
+  background-color: grey;
+  width: 100%;
+  height: 2795px;
+}
+
+.indexContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 1399px;
+  height: 2729px;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+.backgroundImg {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.indexHeader {
+  margin-right: 130px;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .flagsUl {
+    display: flex;
+    grid-gap: 40px;
+
+    .boxOrange,
+    .boxYellow,
+    .boxGreen,
+    .boxSeablue,
+    .boxPurple {
+      margin-bottom: -100px;
+      position: relative;
+    }
+
+    .boxOrange {
+      margin-bottom: -175px;
+    }
+
+    .boxYellow {
+      margin-bottom: -235px;
+    }
+
+    .boxGreen {
+      margin-bottom: -175px;
+    }
+
+    .boxSeablue {
+      margin-bottom: -145px;
+    }
+
+    .boxPurple {
+      margin-bottom: -100px;
+    }
+
+    .boxActive {
+      margin-bottom: 0;
+      transition: margin 0.5s ease;
+    }
+  }
+}
+
+.verticalContainer {
+  position: absolute;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  white-space: nowrap;
+  display: flex;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.verticalText {
+  display: inline-block;
+  margin: 0;
+  letter-spacing: -5px;
+  text-decoration: none;
+  color: black;
+}
+
+.titleContainer {
+  position: relative;
+  top: 19px;
+  left: 228px;
+  width: 495px;
+  .title {
+    color: var(--primary-color);
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    top: 90px;
+    left: 240px;
+    font-size: 20px;
+    width: fit-content;
+  }
+}
+
+.mapHeader {
+  display: flex;
+  .indicatorTable {
+    width: 434px;
+    height: 340px;
+    position: relative;
+    top: 100px;
+    left: 220px;
+    transition: transform 0.5s;
+    cursor: pointer;
+  }
+
+  .indicatorTable:hover {
+    transform: rotate(20deg);
+  }
+
+  .boyPicture {
+    position: relative;
+    left: 132px;
+    bottom: 108px;
+  }
+}
+
+.mapBody {
+  position: relative;
+
+  .mapAnimals {
+    position: relative;
+    bottom: 400px;
+    left: 146px;
+    height: 1684px;
+  }
+
+  .mapInfo {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .whatIsPlain,
+  .whoLivedAtPlain,
+  .howToSavePlain,
+  .greatDrinskayaPlain,
+  .hand {
+    position: relative;
+  }
+
+  .whatIsPlain p,
+  .whoLivedAtPlain p,
+  .howToSavePlain p,
+  .greatDrinskayaPlain p {
+    color: var(--secundary-color);
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 30px;
+    position: relative;
+    text-align: center;
+  }
+
+  .whatIsPlain {
+    left: 950px;
+    bottom: 280px;
+  }
+
+  .whoLivedAtPlain {
+    left: 280px;
+    bottom: 143px;
+  }
+
+  .howToSavePlain {
+    left: 950px;
+    top: 50px;
+  }
+
+  .greatDrinskayaPlain {
+    top: 235px;
+    left: 270px;
+  }
+
+  .hand,
+  .whatIsPlain p,
+  .whoLivedAtPlain p,
+  .howToSavePlain p,
+  .greatDrinskayaPlain p {
+    cursor: pointer;
+  }
+
+  .whatIsPlain .hand {
+    left: 150px;
+    bottom: 25px;
+  }
+
+  .whoLivedAtPlain .hand {
+    right: 20px;
+    bottom: 25px;
+  }
+
+  .howToSavePlain .hand {
+    left: 150px;
+    bottom: 25px;
+  }
+
+  .greatDrinskayaPlain .hand {
+    bottom: 25px;
+    right: 20px;
+  }
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 460px;
+  .footerTitle {
+    color: #33270a;
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+  .partnersContainer {
+    display: flex;
+    grid-gap: 50px;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .footerContact {
+    display: flex;
+    grid-gap: 30px;
+    align-items: center;
+  }
+
+  .footerContact a {
+    color: #33270a;
+    text-decoration: none;
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalWindow {
+  width: 500px;
+  height: 300px;
+  background-color: #ebd7cc;
+  border-radius: 15px;
+  box-shadow: -4px 6px 10px 0px #909074;
+  padding: 20px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.closeIcon {
+  position: absolute;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  top: 10px;
+  right: 10px;
+}

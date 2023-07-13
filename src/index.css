@@ -16,7 +16,7 @@ code {
     monospace;
 }
 
-.btn-primary {
+.btnPrimary {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -28,11 +28,11 @@ code {
   cursor: pointer;
 }
 
-.btn-primary:hover {
+.btnPrimary:hover {
   background-color: #2c7039;
 }
 
-.btn-secundary {
+.btnSecundary {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -44,7 +44,7 @@ code {
   cursor: pointer;
 }
 
-.btn-secundary:hover {
+.btnSecundary:hover {
   background-color: #414244;
 }
 
@@ -54,7 +54,7 @@ h2 {
   text-align: center;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   text-align: left;
